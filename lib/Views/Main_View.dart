@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Widgets/Custom_Text_Button.dart';
-import '../Widgets/Custom_Text_Field.dart';
+import '../Widgets/Add_Note_To_Button_Sheet.dart';
 import '../Widgets/NewsListBuilder.dart';
 
 class MainView extends StatelessWidget {
@@ -44,29 +43,6 @@ class MainView extends StatelessWidget {
           );
         },
         child: Icon(Icons.add),
-      ),
-    );
-  }
-}
-
-class AddNoteToButtonSheet extends StatelessWidget {
-  const AddNoteToButtonSheet({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: CustomTextField(label: "Note Title"),
-          ),
-          CustomTextField(label: "Note description", maxLines: 10),
-          SizedBox(height: 35),
-          CustomTextButton(),
-          SizedBox(height: 45),
-        ],
       ),
     );
   }
