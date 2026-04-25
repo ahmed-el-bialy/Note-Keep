@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Widgets/Custom_Text_Feild.dart';
+import '../Widgets/Custom_Text_Field.dart';
 import '../Widgets/NewsListBuilder.dart';
 
 class MainView extends StatelessWidget {
