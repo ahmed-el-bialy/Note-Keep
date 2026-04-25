@@ -9,13 +9,10 @@ class MainView extends StatelessWidget {
       appBar: AppBar(
         title: Text("Keep Notes"),
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.search))
-        ],
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search,size: 30,))],
         elevation: 5,
       ),
 
-      body: ListView(children: []),
 
       floatingActionButton: Container(
         decoration: BoxDecoration(
