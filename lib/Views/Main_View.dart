@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Widgets/Note_Card.dart';
+import '../Widgets/NewsListBuilder.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
@@ -26,11 +26,7 @@ class MainView extends StatelessWidget {
         elevation: 5,
       ),
 
-      body: ListView(
-        children: [
-          NoteCard(),
-        ],
-      ),
+      body: NotesListBuilder(),
 
       floatingActionButton: Container(
         decoration: BoxDecoration(
@@ -47,3 +43,4 @@ class MainView extends StatelessWidget {
     );
   }
 }
+
