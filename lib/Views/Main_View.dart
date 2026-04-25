@@ -33,6 +33,9 @@ class MainView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadiusGeometry.circular(20),
+            ),
             context: context,
             builder: (context) {
               return AddNoteToButtonSheet();
@@ -51,11 +54,18 @@ class AddNoteToButtonSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadiusGeometry.circular(15),
+      ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [CustomTextField(label: "Note Title"),
-        CustomTextField(label: "note description")
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: CustomTextField(label: "Note Title"),
+          ),
+
+          CustomTextField(label: "Note description",maxLines: 10,),
         ],
       ),
     );
