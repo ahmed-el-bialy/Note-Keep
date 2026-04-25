@@ -11,7 +11,16 @@ class NotesKeep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: "Poppins",
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          shape: const CircleBorder(),
+          backgroundColor: Colors.lightBlueAccent,
+          iconSize: 35,
+          foregroundColor: Colors.black,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       home: MainView(),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../Widgets/NewsListBuilder.dart';
 
 class MainView extends StatelessWidget {
@@ -28,19 +29,10 @@ class MainView extends StatelessWidget {
 
       body: NotesListBuilder(),
 
-      floatingActionButton: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(32),
-          color: Colors.lightBlueAccent,
-        ),
-        child: IconButton(
-          padding: EdgeInsets.all(15),
-          color: Colors.black,
-          onPressed: () {},
-          icon: Icon(Icons.add, size: 35),
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
       ),
     );
   }
 }
-
