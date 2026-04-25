@@ -7,14 +7,19 @@ class MainView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Keep Notes"),
+        title: Text("Keep Notes",style: TextStyle(fontSize: 27),),
         centerTitle: true,
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Card(
-                elevation: 10,
-                child: IconButton(onPressed: () {}, icon: Icon(Icons.search, size: 30))),
+              color: Colors.white.withOpacity(.1),
+              elevation: 10,
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.search, size: 30, color: Colors.white),
+              ),
+            ),
           ),
         ],
         elevation: 5,
