@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../Widgets/Custom_Text_Button.dart';
-import '../Widgets/Custom_Text_Field.dart';
+import '../Widgets/Edit_Note_View_Body.dart';
 
 class EditNoteView extends StatelessWidget {
   const EditNoteView({super.key});
@@ -27,19 +25,7 @@ class EditNoteView extends StatelessWidget {
         ],
         elevation: 5,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: CustomTextField(label: "Note Title"),
-          ),
-          CustomTextField(label: "Note description", maxLines: 10),
-          SizedBox(height: 35),
-          CustomTextButton(),
-          SizedBox(height: 45),
-        ],
-      ),
+      body: EditNoteViewBody(),
     );
   }
 }
