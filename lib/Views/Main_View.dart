@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widgets/Custom_Text_Feild.dart';
 import '../Widgets/NewsListBuilder.dart';
 
 class MainView extends StatelessWidget {
@@ -30,8 +31,32 @@ class MainView extends StatelessWidget {
       body: NotesListBuilder(),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return AddNoteToButtonSheet();
+            },
+          );
+        },
         child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class AddNoteToButtonSheet extends StatelessWidget {
+  const AddNoteToButtonSheet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [CustomTextField(label: "Note Title"),
+        CustomTextField(label: "note description")
+        ],
       ),
     );
   }
