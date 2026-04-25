@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widgets/Custom_Text_Button.dart';
 import '../Widgets/Custom_Text_Field.dart';
 import '../Widgets/NewsListBuilder.dart';
 
@@ -53,10 +54,7 @@ class AddNoteToButtonSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadiusGeometry.circular(15),
-      ),
+    return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -64,8 +62,10 @@ class AddNoteToButtonSheet extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: CustomTextField(label: "Note Title"),
           ),
-
-          CustomTextField(label: "Note description",maxLines: 10,),
+          CustomTextField(label: "Note description", maxLines: 10),
+          SizedBox(height: 35),
+          CustomTextButton(),
+          SizedBox(height: 45),
         ],
       ),
     );
