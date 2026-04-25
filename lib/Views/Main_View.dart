@@ -9,10 +9,16 @@ class MainView extends StatelessWidget {
       appBar: AppBar(
         title: Text("Keep Notes"),
         centerTitle: true,
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search,size: 30,))],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Card(
+                elevation: 10,
+                child: IconButton(onPressed: () {}, icon: Icon(Icons.search, size: 30))),
+          ),
+        ],
         elevation: 5,
       ),
-
 
       floatingActionButton: Container(
         decoration: BoxDecoration(

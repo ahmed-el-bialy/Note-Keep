@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:notes_keep/Views/Main_View.dart';
 
-void main(){
+void main() {
   runApp(NotesKeep());
 }
-
 
 class NotesKeep extends StatelessWidget {
   const NotesKeep({super.key});
