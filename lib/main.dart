@@ -10,8 +10,8 @@ import 'package:notes_keep/simple_bloc_observer.dart';
 void main() async {
   Bloc.observer = SimpleBlocObserver();
   await Hive.initFlutter();
-  await Hive.openBox(kNotesBox);
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox(kNotesBox);
   runApp(NotesKeep());
 }
 
@@ -20,22 +20,19 @@ class NotesKeep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => AddNotesCubit())],
-      child: MaterialApp(
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          fontFamily: "Poppins",
-          floatingActionButtonTheme: FloatingActionButtonThemeData(
-            shape: const CircleBorder(),
-            backgroundColor: Colors.lightBlueAccent,
-            iconSize: 35,
-            foregroundColor: Colors.black,
-          ),
+    return MaterialApp(
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: "Poppins",
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          shape: const CircleBorder(),
+          backgroundColor: Colors.lightBlueAccent,
+          iconSize: 35,
+          foregroundColor: Colors.black,
         ),
-        debugShowCheckedModeBanner: false,
-        home: MainView(),
       ),
+      debugShowCheckedModeBanner: false,
+      home: MainView(),
     );
   }
 }

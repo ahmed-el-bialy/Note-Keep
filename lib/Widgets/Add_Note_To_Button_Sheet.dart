@@ -11,24 +11,23 @@ class AddNoteToButtonSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: BlocConsumer<AddNotesCubit, AddNotesState>(
-        listener: (context, state) {
-          if (state is AddNotesSaved) {
-            Navigator.pop(context);
-          } else if (state is AddNotesFailed) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text("failed"), duration: Duration(seconds: 2)),
-            );
-          }
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-            inAsyncCall: state is AddNotesLoading ? true : false,
-            child: AddNoteForm(),
+    return BlocConsumer<AddNotesCubit, AddNotesState>(
+      listener: (context, state) {
+        if (state is AddNotesSaved) {
+          Navigator.pop(context);
+          BlocProvider.of<AddNotesCubit>(context).resetState();
+        } else if (state is AddNotesFailed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("failed"), duration: Duration(seconds: 2)),
           );
-        },
-      ),
+        }
+      },
+      builder: (context, state) {
+        return ModalProgressHUD(
+          inAsyncCall: state is AddNotesLoading ? true : false,
+          child: SingleChildScrollView(child: AddNoteForm()),
+        );
+      },
     );
   }
 }

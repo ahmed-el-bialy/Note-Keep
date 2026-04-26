@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../Cubit/Add_Note_Cubit/Add_Note_Cubit.dart';
 import '../Widgets/Add_Note_To_Button_Sheet.dart';
 import '../Widgets/NewsListBuilder.dart';
 
@@ -33,12 +35,16 @@ class MainView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadiusGeometry.circular(20),
             ),
             context: context,
             builder: (context) {
-              return AddNoteToButtonSheet();
+              return MultiBlocProvider(
+                providers: [BlocProvider(create: (context) => AddNotesCubit())],
+                child: AddNoteToButtonSheet(),
+              );
             },
           );
         },
