@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomTextButton extends StatelessWidget {
-  const CustomTextButton({super.key, required this.onTap});
- final void Function() onTap;
+  const CustomTextButton({
+    super.key,
+    required this.onTap,
+    this.isLoading = false,
+  });
+
+  final void Function() onTap;
+  final bool isLoading;
+
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -15,14 +23,19 @@ class CustomTextButton extends StatelessWidget {
         foregroundColor: Colors.black,
       ),
       onPressed: onTap,
-      child: Text(
-        "Add",
-        style: TextStyle(
-          fontSize: 22,
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+      child: isLoading == false
+          ? Text(
+              "Add",
+              style: TextStyle(
+                fontSize: 22,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          : CircularProgressIndicator(
+              color: Colors.black,
+              padding: EdgeInsets.symmetric(vertical: 2),
+            ),
     );
   }
 }

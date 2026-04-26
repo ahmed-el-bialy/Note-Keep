@@ -20,7 +20,7 @@ class EditNoteViewBody extends StatelessWidget {
         ),
         CustomTextField(label: "Note description", maxLines: 10),
         SizedBox(height: 35),
-        CustomTextButton(onTap: () {  },),
+        CustomTextButton(onTap: () {  }, ),
         SizedBox(height: 45),
       ],
     );
