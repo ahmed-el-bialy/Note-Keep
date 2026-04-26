@@ -1,5 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:notes_keep/Cubit/Add_Note_Cubit/Add_Note_Cubit.dart';
+import 'package:notes_keep/Cubit/Add_Note_Cubit/Notes_State.dart';
 
 import 'Add_Note_Form.dart';
 
@@ -9,7 +12,23 @@ class AddNoteToButtonSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: AddNoteForm(),
+      child: BlocConsumer<AddNotesCubit, AddNotesState>(
+        listener: (context, state) {
+          if (state is AddNotesSaved) {
+            Navigator.pop(context);
+          } else if (state is AddNotesFailed) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text("failed"), duration: Duration(seconds: 2)),
+            );
+          }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+            inAsyncCall: state is AddNotesLoading ? true : false,
+            child: AddNoteForm(),
+          );
+        },
+      ),
     );
   }
 }
