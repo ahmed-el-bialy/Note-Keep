@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_keep/Cubit/Add_Note_Cubit/Add_Note_Cubit.dart';
 import 'package:notes_keep/Models/Note_Model.dart';
 
-import '../Cubit/Add_Note_Cubit/Notes_State.dart';
+import '../Cubit/Add_Note_Cubit/Add_Notes_State.dart';
 import 'Custom_Text_Button.dart';
 import 'Custom_Text_Field.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_keep/Cubit/Notes_Cubits/notes_cubit.dart';
 
 import '../Cubit/Add_Note_Cubit/Add_Note_Cubit.dart';
 import '../Widgets/Add_Note_To_Button_Sheet.dart';
@@ -30,7 +31,11 @@ class MainView extends StatelessWidget {
         elevation: 5,
       ),
 
-      body: NotesListBuilder(),
+      body: BlocBuilder<NotesCubit, NotesState>(
+        builder: (context, state) {
+          return NotesListBuilder();
+        },
+      ),
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
