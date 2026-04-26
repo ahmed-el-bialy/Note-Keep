@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+
 part 'Note_Model.g.dart';
 
 @HiveType(typeId: 0)
@@ -19,6 +20,6 @@ class NoteModel extends HiveObject {
     required this.content,
     required this.createdDate,
     required this.lastEditedDate,
-   required this.color
+    required this.color,
   });
 }
